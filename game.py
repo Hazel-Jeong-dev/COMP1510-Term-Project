@@ -127,10 +127,6 @@ def check_for_battles() -> bool:
     return random.choice(["battle", "safe"]) == "battle"
 
 
-def check_if_goal_attained(character):
-    pass
-
-
 def battle(character, ingredients, skill_dict):
     pass
 
@@ -141,6 +137,10 @@ def character_has_leveled(character, ingredients):
 
 def level_up_protocol(character, skill_dict):
     pass
+
+
+def check_if_goal_attained(character: dict) -> bool:
+    return character["Level"] > 3
 
 
 def game():
