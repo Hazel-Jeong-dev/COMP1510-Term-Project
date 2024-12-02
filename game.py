@@ -81,6 +81,10 @@ def describe_current_location(character: dict):
     print(f"\nYou are currently at {current_coordinate}, and you have {current_hp} HP left.")
 
 
+def is_alive(character: dict) -> bool:
+    return character["Current HP"] > 0
+
+
 def get_user_direction_choice():
     pass
 
@@ -110,10 +114,6 @@ def character_has_leveled(character, ingredients):
 
 
 def level_up_protocol(character, skill_dict):
-    pass
-
-
-def is_alive(character):
     pass
 
 
