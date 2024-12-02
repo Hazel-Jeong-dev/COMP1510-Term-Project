@@ -99,8 +99,15 @@ def get_user_direction_choice() -> str:
     return directions[direction_choice - 1]
 
 
-def validate_move(rows, columns, character, direction):
-    pass
+def validate_move(rows: int, columns: int, character: dict, direction: str) -> bool:
+    if direction == "North":
+        return character["Y-coordinate"] > 0
+    elif direction == "South":
+        return character["Y-coordinate"] < rows - 1
+    elif direction == "East":
+        return character["X-coordinate"] < columns - 1
+    elif direction == "West":
+        return character["X-coordinate"] > 0
 
 
 def move_character(character, direction):
