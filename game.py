@@ -32,7 +32,15 @@ def show_dish_options(dish_dict: dict):
     print("Here are some dish options you can choose from:\n")
     for index, dish_name in enumerate(dish_dict.keys()):
         dish_difficulty = dish_dict[dish_name]["Difficulty"]
-        print("%d.\t%s, Difficulty: %s" % (index+1, dish_name, dish_difficulty))
+        print("%d.\t%s, Difficulty: %s" % (index + 1, dish_name, dish_difficulty))
+
+
+def get_user_dish_choice(dish_dict):
+    dish_number = int(input("\nSelect the dish you would like to cook for the old man: "))
+    dish_tuple = tuple(dish_dict)
+    dish_name = dish_tuple[dish_number - 1]
+
+    return dish_name
 
 
 def make_character(character_name):
@@ -40,10 +48,6 @@ def make_character(character_name):
 
 
 def skills():
-    pass
-
-
-def get_user_dish_choice(dish_dict):
     pass
 
 
