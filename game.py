@@ -85,8 +85,22 @@ def is_alive(character: dict) -> bool:
     return character["Current HP"] > 0
 
 
-def get_user_direction_choice():
-    pass
+def get_user_direction_choice() -> str:
+    print("Enter the direction you wish to travel: ")
+    directions = ("North", "South", "East", "West")
+    for index, direction in enumerate(directions, 1):
+        print("%d.\t%s" % (index, direction))
+    try:
+        direction_choice = int(input())
+    except ValueError:
+        print("Invalid input. Please try again.")
+        get_user_direction_choice()
+    else:
+        if direction_choice not in range(1, len(directions) + 1):
+            print("Invalid input. Please try again.")
+            get_user_direction_choice()
+        else:
+            return directions[direction_choice - 1]
 
 
 def validate_move(rows, columns, character, direction):
