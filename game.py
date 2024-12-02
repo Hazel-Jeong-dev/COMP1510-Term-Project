@@ -50,6 +50,15 @@ def get_user_dish_choice(dish_dict: dict) -> str:
         return dish_name
 
 
+def show_ingredients_to_get(dish_dict: dict, dish_name: str):
+    ingredients = ""
+    for vegetable in dish_dict[dish_name]["Vegetables"]:
+        ingredients += vegetable + ", "
+    ingredients += f"and {dish_dict[dish_name]["Meat"]}"
+    print(f"\nYou have chosen {dish_name}."
+          f"\nYou will need to get {ingredients} to cook {dish_name}. ")
+
+
 def make_character(character_name):
     pass
 
@@ -111,11 +120,12 @@ def game():
 
     dish_dict = dishes()
     show_dish_options(dish_dict)
-    dish_choice = get_user_dish_choice(dish_dict)
+    dish_name = get_user_dish_choice(dish_dict)
+    show_ingredients_to_get(dish_dict, dish_name)
 
     skill_dict = skills()
     character = make_character(character_name)
-    ingredients = ingredients_to_get(character, dish_choice)
+    ingredients = ingredients_to_get(character, dish_name)
 
     rows = 5
     columns = 5
