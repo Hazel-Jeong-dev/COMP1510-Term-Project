@@ -69,7 +69,7 @@ def skills() -> dict:
 
 def make_character(character_name: str) -> dict:
     return {"Name": character_name, "X-coordinate": 2, "Y-coordinate": 2,
-            "Current HP": 5, "Max HP": 5, "Level": 1, "Mastered Skills": ["Rinse"], "Items": set()}
+            "Current HP": 5, "Max HP": 5, "Level": 1, "Mastered Skills": ["Rinse"], "Items": []}
 
 
 def describe_current_location(character: dict):
@@ -131,8 +131,11 @@ def battle(character, ingredients, skill_dict):
     pass
 
 
-def character_has_leveled(character, ingredients):
-    pass
+def character_has_leveled(character: dict, ingredients: dict) -> bool:
+    if character["Level"] == 1:
+        return set(character["Items"]) == set(ingredients[character["Level"]])
+    elif character["Level"] == 2:
+        return character["Items"][0] == ingredients[character["Level"]]
 
 
 def level_up_protocol(character, skill_dict):
