@@ -110,8 +110,15 @@ def validate_move(rows: int, columns: int, character: dict, direction: str) -> b
         return character["X-coordinate"] > 0
 
 
-def move_character(character, direction):
-    pass
+def move_character(character: dict, direction: str):
+    if direction == "North":
+        character["Y-coordinate"] -= 1
+    elif direction == "South":
+        character["Y-coordinate"] += 1
+    elif direction == "East":
+        character["X-coordinate"] += 1
+    elif direction == "West":
+        character["X-coordinate"] -= 1
 
 
 def check_if_goal_attained(character):
