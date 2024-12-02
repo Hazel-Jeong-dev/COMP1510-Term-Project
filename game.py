@@ -36,11 +36,18 @@ def show_dish_options(dish_dict: dict):
 
 
 def get_user_dish_choice(dish_dict):
-    dish_number = int(input("\nSelect the dish you would like to cook for the old man: "))
-    dish_tuple = tuple(dish_dict)
-    dish_name = dish_tuple[dish_number - 1]
-
-    return dish_name
+    try:
+        dish_number = int(input("\nSelect the dish you would like to cook for the old man: "))
+    except ValueError:
+        print("Invalid input. Please select a number between 1 and 7.")
+        get_user_dish_choice(dish_dict)
+    else:
+        if dish_number > 7 or dish_number < 1:
+            print("Invalid input. Please select a number between 1 and 7.")
+            get_user_dish_choice(dish_dict)
+        dish_tuple = tuple(dish_dict)
+        dish_name = dish_tuple[dish_number - 1]
+        return dish_name
 
 
 def make_character(character_name):
