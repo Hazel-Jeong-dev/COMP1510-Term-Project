@@ -138,8 +138,14 @@ def character_has_leveled(character: dict, ingredients: dict) -> bool:
         return character["Items"][0] == ingredients[character["Level"]]
 
 
-def level_up_protocol(character, skill_dict):
-    pass
+def level_up_protocol(character: dict, skill_dict: dict):
+    character["Level"] += 1
+    character["Max HP"] *= 2
+    character["Current HP"] = character["Max HP"]
+    character["X-coordinate"] = 2
+    character["Y-coordinate"] = 2
+    character["Mastered Skills"].append(tuple(skill_dict)[character["Level"] - 1])
+    character["Items"] = []
 
 
 def check_if_goal_attained(character: dict) -> bool:
