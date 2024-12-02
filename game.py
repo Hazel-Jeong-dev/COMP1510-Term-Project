@@ -42,6 +42,7 @@ def get_user_dish_choice(dish_dict: dict) -> str:
         dish_number = int(input("\nSelect the dish you would like to cook for the old man: "))
     dish_tuple = tuple(dish_dict)
     dish_name = dish_tuple[dish_number - 1]
+
     return dish_name
 
 
@@ -85,17 +86,17 @@ def get_user_direction_choice() -> str:
     directions = ("North", "South", "East", "West")
     for index, direction in enumerate(directions, 1):
         print("%d.\t%s" % (index, direction))
-    try:
+
+    direction_choice = int(input())
+    while direction_choice not in range(1, len(directions) + 1):
+        print("\nInvalid input. Please try again.")
+        print("Enter the direction you wish to travel: ")
+        directions = ("North", "South", "East", "West")
+        for index, direction in enumerate(directions, 1):
+            print("%d.\t%s" % (index, direction))
         direction_choice = int(input())
-    except ValueError:
-        print("Invalid input. Please try again.")
-        get_user_direction_choice()
-    else:
-        if direction_choice not in range(1, len(directions) + 1):
-            print("Invalid input. Please try again.")
-            get_user_direction_choice()
-        else:
-            return directions[direction_choice - 1]
+
+    return directions[direction_choice - 1]
 
 
 def validate_move(rows, columns, character, direction):
