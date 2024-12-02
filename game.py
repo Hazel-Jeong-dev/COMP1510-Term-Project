@@ -74,8 +74,11 @@ def make_character(character_name: str) -> dict:
             "Current HP": 5, "Max HP": 5, "Level": 1, "Mastered Skills": ["Rinse"], "Items": set()}
 
 
-def describe_current_location(character):
-    pass
+def describe_current_location(character: dict):
+    current_coordinate = (character["X-coordinate"], character["Y-coordinate"])
+    current_hp = character["Current HP"]
+
+    print(f"\nYou are currently at {current_coordinate}, and you have {current_hp} HP left.")
 
 
 def get_user_direction_choice():
@@ -134,24 +137,24 @@ def game():
     columns = 5
 
     achieved_goal = False
-    print(describe_current_location(character))
+    describe_current_location(character)
 
     while is_alive(character) and not achieved_goal:
         direction = get_user_direction_choice()
         valid_move = validate_move(rows, columns, character, direction)
         if valid_move:
             move_character(character, direction)
-            print(describe_current_location(character))
+            describe_current_location(character)
             there_is_a_battle = check_for_battles()
             if there_is_a_battle:
                 battle(character, ingredients, skill_dict)
                 if character_has_leveled(character, ingredients):
                     level_up_protocol(character, skill_dict)
-                print(describe_current_location(character))
+                describe_current_location(character)
             achieved_goal = check_if_goal_attained(character)
         else:
             print("\nYou've reached to a wall. Please enter the direction you wish to travel again.")
-            print(describe_current_location(character))
+            describe_current_location(character)
     if is_alive(character):
         print("\nCongratulations! You won!")
     else:
