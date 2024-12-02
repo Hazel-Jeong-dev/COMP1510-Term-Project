@@ -65,8 +65,9 @@ def skills() -> dict:
             "Fire": {"Hit": 10, "Accuracy": 0.2}}
 
 
-def make_character(character_name):
-    pass
+def make_character(character_name: str) -> dict:
+    return {"Name": character_name, "X-coordinate": 2, "Y-coordinate": 2,
+            "Current HP": 5, "Max HP": 5, "Level": 1, "Mastered Skills": ["Rinse"], "Items": set()}
 
 
 def ingredients_to_get(character, dish_choice):
