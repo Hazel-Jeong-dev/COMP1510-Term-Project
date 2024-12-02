@@ -35,7 +35,7 @@ def show_dish_options(dish_dict: dict):
         print("%d.\t%s, Difficulty: %s" % (index + 1, dish_name, dish_difficulty))
 
 
-def get_user_dish_choice(dish_dict):
+def get_user_dish_choice(dish_dict: dict) -> str:
     try:
         dish_number = int(input("\nSelect the dish you would like to cook for the old man: "))
     except ValueError:
