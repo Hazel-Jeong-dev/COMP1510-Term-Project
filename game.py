@@ -59,11 +59,13 @@ def show_ingredients_to_get(dish_dict: dict, dish_name: str):
           f"\nYou will need to get {ingredients} to cook {dish_name}. ")
 
 
-def make_character(character_name):
-    pass
-
-
 def skills():
+    return {"Rinse": {"Hit": 2, "Accuracy": 0.8},
+            "Cut": {"Hit": 5, "Accuracy": 0.5},
+            "Fire": {"Hit": 10, "Accuracy": 0.2}}
+
+
+def make_character(character_name):
     pass
 
 
