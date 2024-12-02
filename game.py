@@ -39,11 +39,11 @@ def get_user_dish_choice(dish_dict: dict) -> str:
     try:
         dish_number = int(input("\nSelect the dish you would like to cook for the old man: "))
     except ValueError:
-        print("Invalid input. Please select a number between 1 and 7.")
+        print(f"Invalid input. Please select a number between 1 and {len(dish_dict.keys())}.")
         get_user_dish_choice(dish_dict)
     else:
-        if dish_number > 7 or dish_number < 1:
-            print("Invalid input. Please select a number between 1 and 7.")
+        if dish_number not in range(1, len(dish_dict.keys()) + 1):
+            print(f"Invalid input. Please select a number between 1 and {len(dish_dict.keys())}.")
             get_user_dish_choice(dish_dict)
         dish_tuple = tuple(dish_dict)
         dish_name = dish_tuple[dish_number - 1]
