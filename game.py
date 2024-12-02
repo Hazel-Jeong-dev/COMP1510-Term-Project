@@ -135,44 +135,48 @@ def game():
     """
     Run the game.
     """
-    character_name = input("What is your name? ")
-    print(game_instructions(character_name))
-
-    dish_dict = dishes()
-    show_dish_options(dish_dict)
-    dish_name = get_user_dish_choice(dish_dict)
-    show_ingredients_to_get(dish_dict, dish_name)
-    ingredients = each_level_ingredients(dish_dict, dish_name)
-
-    skill_dict = skills()
-    character = make_character(character_name)
-
-    rows = 5
-    columns = 5
-
-    achieved_goal = False
-    describe_current_location(character)
-
-    while is_alive(character) and not achieved_goal:
-        direction = get_user_direction_choice()
-        valid_move = validate_move(rows, columns, character, direction)
-        if valid_move:
-            move_character(character, direction)
-            describe_current_location(character)
-            there_is_a_battle = check_for_battles()
-            if there_is_a_battle:
-                battle(character, ingredients, skill_dict)
-                if character_has_leveled(character, ingredients):
-                    level_up_protocol(character, skill_dict)
-                describe_current_location(character)
-            achieved_goal = check_if_goal_attained(character)
-        else:
-            print("\nYou've reached to a wall. Please enter the direction you wish to travel again.")
-            describe_current_location(character)
-    if is_alive(character):
-        print("\nCongratulations! You won!")
+    character_name = input("What is your name? ").strip()
+    if character_name == "":
+        print("Invalid input. Please try again.")
+        game()
     else:
-        print("\nSorry, you died.")
+        print(game_instructions(character_name))
+
+        dish_dict = dishes()
+        show_dish_options(dish_dict)
+        dish_name = get_user_dish_choice(dish_dict)
+        show_ingredients_to_get(dish_dict, dish_name)
+        ingredients = each_level_ingredients(dish_dict, dish_name)
+
+        skill_dict = skills()
+        character = make_character(character_name)
+
+        rows = 5
+        columns = 5
+
+        achieved_goal = False
+        describe_current_location(character)
+
+        while is_alive(character) and not achieved_goal:
+            direction = get_user_direction_choice()
+            valid_move = validate_move(rows, columns, character, direction)
+            if valid_move:
+                move_character(character, direction)
+                describe_current_location(character)
+                there_is_a_battle = check_for_battles()
+                if there_is_a_battle:
+                    battle(character, ingredients, skill_dict)
+                    if character_has_leveled(character, ingredients):
+                        level_up_protocol(character, skill_dict)
+                    describe_current_location(character)
+                achieved_goal = check_if_goal_attained(character)
+            else:
+                print("\nYou've reached to a wall. Please enter the direction you wish to travel again.")
+                describe_current_location(character)
+        if is_alive(character):
+            print("\nCongratulations! You won!")
+        else:
+            print("\nSorry, you died.")
 
 
 def main():
