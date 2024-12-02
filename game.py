@@ -59,6 +59,10 @@ def show_ingredients_to_get(dish_dict: dict, dish_name: str):
           f"\nYou will need to get {ingredients} to cook {dish_name}. ")
 
 
+def each_level_ingredients(dish_dict: dict, dish_name: str) -> dict:
+    return {1: dish_dict[dish_name]["Vegetables"], 2: dish_dict[dish_name]["Meat"]}
+
+
 def skills() -> dict:
     return {"Rinse": {"Hit": 2, "Accuracy": 0.8},
             "Cut": {"Hit": 5, "Accuracy": 0.5},
@@ -68,10 +72,6 @@ def skills() -> dict:
 def make_character(character_name: str) -> dict:
     return {"Name": character_name, "X-coordinate": 2, "Y-coordinate": 2,
             "Current HP": 5, "Max HP": 5, "Level": 1, "Mastered Skills": ["Rinse"], "Items": set()}
-
-
-def ingredients_to_get(character, dish_choice):
-    pass
 
 
 def describe_current_location(character):
@@ -125,10 +125,10 @@ def game():
     show_dish_options(dish_dict)
     dish_name = get_user_dish_choice(dish_dict)
     show_ingredients_to_get(dish_dict, dish_name)
+    ingredients = each_level_ingredients(dish_dict, dish_name)
 
     skill_dict = skills()
     character = make_character(character_name)
-    ingredients = ingredients_to_get(character, dish_name)
 
     rows = 5
     columns = 5
