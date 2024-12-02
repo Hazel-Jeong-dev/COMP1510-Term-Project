@@ -28,15 +28,17 @@ def dishes() -> dict:
             "Bulgogi": {"Difficulty": 4, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Beef"}}
 
 
+def show_dish_options(dish_dict: dict):
+    for index, dish_name in enumerate(dish_dict.keys()):
+        dish_difficulty = dish_dict[dish_name]["Difficulty"]
+        print("%d.\t%s,\tDifficulty: %s" % (index+1, dish_name, dish_difficulty))
+
+
 def make_character(character_name):
     pass
 
 
 def skills():
-    pass
-
-
-def show_dish_options(dish_dict):
     pass
 
 
