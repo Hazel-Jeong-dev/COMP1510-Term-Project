@@ -3,6 +3,8 @@ Hazel Jeong
 A01166162
 """
 
+import random
+
 
 def game_instructions(character_name: str) -> str:
     return (f"\nGood day, {character_name}. You are a junior chef who was travelling to a village known as a dream \n"
@@ -121,11 +123,11 @@ def move_character(character: dict, direction: str):
         character["X-coordinate"] -= 1
 
 
+def check_for_battles() -> bool:
+    return random.choice(["battle", "safe"]) == "battle"
+
+
 def check_if_goal_attained(character):
-    pass
-
-
-def check_for_battles():
     pass
 
 
