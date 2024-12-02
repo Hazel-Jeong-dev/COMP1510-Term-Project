@@ -30,9 +30,9 @@ def dishes() -> dict:
 
 def show_dish_options(dish_dict: dict):
     print("Here are some dish options you can choose from:\n")
-    for index, dish_name in enumerate(dish_dict.keys()):
+    for index, dish_name in enumerate(dish_dict.keys(), 1):
         dish_difficulty = dish_dict[dish_name]["Difficulty"]
-        print("%d.\t%s, Difficulty: %s" % (index + 1, dish_name, dish_difficulty))
+        print("%d.\t%s, Difficulty: %s" % (index, dish_name, dish_difficulty))
 
 
 def get_user_dish_choice(dish_dict: dict) -> str:
