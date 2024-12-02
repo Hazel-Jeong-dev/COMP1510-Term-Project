@@ -36,18 +36,13 @@ def show_dish_options(dish_dict: dict):
 
 
 def get_user_dish_choice(dish_dict: dict) -> str:
-    try:
-        dish_number = int(input("\nSelect the dish you would like to cook for the old man: "))
-    except ValueError:
+    dish_number = int(input("\nSelect the dish you would like to cook for the old man: "))
+    while dish_number not in range(1, len(dish_dict.keys()) + 1):
         print(f"Invalid input. Please select a number between 1 and {len(dish_dict.keys())}.")
-        get_user_dish_choice(dish_dict)
-    else:
-        if dish_number not in range(1, len(dish_dict.keys()) + 1):
-            print(f"Invalid input. Please select a number between 1 and {len(dish_dict.keys())}.")
-            get_user_dish_choice(dish_dict)
-        dish_tuple = tuple(dish_dict)
-        dish_name = dish_tuple[dish_number - 1]
-        return dish_name
+        dish_number = int(input("\nSelect the dish you would like to cook for the old man: "))
+    dish_tuple = tuple(dish_dict)
+    dish_name = dish_tuple[dish_number - 1]
+    return dish_name
 
 
 def show_ingredients_to_get(dish_dict: dict, dish_name: str):
