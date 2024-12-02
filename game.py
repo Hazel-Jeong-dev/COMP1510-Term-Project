@@ -29,9 +29,10 @@ def dishes() -> dict:
 
 
 def show_dish_options(dish_dict: dict):
+    print("Here are some dish options you can choose from:\n")
     for index, dish_name in enumerate(dish_dict.keys()):
         dish_difficulty = dish_dict[dish_name]["Difficulty"]
-        print("%d.\t%s,\tDifficulty: %s" % (index+1, dish_name, dish_difficulty))
+        print("%d.\t%s, Difficulty: %s" % (index+1, dish_name, dish_difficulty))
 
 
 def make_character(character_name):
