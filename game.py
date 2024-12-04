@@ -450,6 +450,22 @@ def move_character(character: dict, direction: str):
     :precondition: direction must be a string
     :precondition: direction must contain one value among "North", "South", "East", and "West"
     :postcondition: update the character's X- or Y-coordinates
+
+    >>> game_character = {"Name": "Chris", "Title": "Sous Chef", "Level": 2,
+    ...                   "X-coordinate": 3, "Y-coordinate": 0, "Current HP": 15, "Max HP": 20,
+    ...                   "Mastered Skills": ["Rinse", "Cut"], "Items": []}
+    >>> move_direction = "South"
+    >>> move_character(game_character, move_direction)
+    >>> game_character == {"Name": "Chris", "Title": "Sous Chef", "Level": 2,
+    ...                   "X-coordinate": 3, "Y-coordinate": 1, "Current HP": 15, "Max HP": 20,
+    ...                   "Mastered Skills": ["Rinse", "Cut"], "Items": []}
+    True
+    >>> move_direction = "North"
+    >>> move_character(game_character, move_direction)
+    >>> game_character == {"Name": "Chris", "Title": "Sous Chef", "Level": 2,
+    ...                   "X-coordinate": 3, "Y-coordinate": 0, "Current HP": 15, "Max HP": 20,
+    ...                   "Mastered Skills": ["Rinse", "Cut"], "Items": []}
+    True
     """
     if direction == "North":
         character["Y-coordinate"] -= 1
