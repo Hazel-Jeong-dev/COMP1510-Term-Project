@@ -398,6 +398,16 @@ def battle(character: dict, ingredients: dict, dish_name: str, skill_dict: dict,
 
 
 def character_has_leveled(character: dict, ingredients: dict) -> bool:
+    """
+    Check if the character has leveled up or not.
+
+    :param character: a well-defined dictionary containing the character's information
+    :param ingredients: a dictionary containing the level - ingredients pairs
+    :precondition: character must be a dictionary
+    :precondition: ingredients must be a dictionary
+    :postcondition: return a boolean indicating if the character has leveled up or not
+    :return: a boolean indicating if the character has leveled up or not
+    """
     if character["Level"] == 1:
         return set(character["Items"]) == set(ingredients[character["Level"]])
     elif character["Level"] == 2:
