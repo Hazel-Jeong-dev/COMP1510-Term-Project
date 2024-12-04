@@ -249,8 +249,8 @@ def level_up_protocol(character: dict, level_dict: dict):
     print(f"Now you have {character["Max HP"]} Max HP.")
 
 
-def check_if_goal_attained(character: dict) -> bool:
-    return character["Level"] > 3
+def check_if_goal_attained(character: dict, dish_name: str) -> bool:
+    return character["Items"] == [dish_name]
 
 
 def game():
@@ -291,11 +291,11 @@ def game():
                 there_is_a_battle = check_for_battles(character)
                 if there_is_a_battle:
                     battle(character, ingredients, dish_name, skill_dict, ingredients_specs_dict)
-                    if character_has_leveled(character, ingredients):
+                    if character_has_leveled(character, ingredients) and character["Level"] < 3:
                         level_up_protocol(character, level_dict)
                         show_ingredients_for_current_level(character, ingredients)
                     describe_current_location(character)
-                achieved_goal = check_if_goal_attained(character)
+                achieved_goal = check_if_goal_attained(character, dish_name)
             else:
                 print("\nYou've reached to a wall. Please enter the direction you wish to travel again.")
                 describe_current_location(character)
