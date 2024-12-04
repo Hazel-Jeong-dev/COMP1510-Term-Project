@@ -66,6 +66,27 @@ def show_dish_options(dish_dict: dict):
     :param dish_dict: a well-defined dictionary containing the dish options
     :precondition: dish_dict must be a dictionary
     :postcondition: print the dish options to the user in a readable format
+
+    >>> dish_options = {"Galbijjim": {"Difficulty": 5, "Vegetables": ("Carrots", "Potatoes", "Onions", "Garlic"),
+    ...                             "Meat": "Beef"},
+    ...                 "Jeyuk": {"Difficulty": 3, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Pork"},
+    ...                 "Dakgalbi": {"Difficulty": 2, "Vegetables": ("Cabbages", "Potatoes", "Onions", "Garlic"),
+    ...                             "Meat": "Chicken"},
+    ...                 "Kongbul": {"Difficulty": 3, "Vegetables": ("Bean Sprouts", "Onions", "Garlic"),
+    ...                             "Meat": "Pork"},
+    ...                 "Jjimdak": {"Difficulty": 2, "Vegetables": ("Carrots", "Potatoes", "Onions", "Garlic"),
+    ...                              "Meat": "Chicken"},
+    ...                 "Samgyeopsal": {"Difficulty": 1, "Vegetables": ("Lettuce", "Garlic"), "Meat": "Pork"},
+    ...                 "Bulgogi": {"Difficulty": 4, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Beef"}}
+    >>> show_dish_options(dish_options) # doctest: +NORMALIZE_WHITESPACE
+    Here are some dish options you can choose from:
+    1.	Galbijjim, Difficulty: 5
+    2.	Jeyuk, Difficulty: 3
+    3.	Dakgalbi, Difficulty: 2
+    4.	Kongbul, Difficulty: 3
+    5.	Jjimdak, Difficulty: 2
+    6.	Samgyeopsal, Difficulty: 1
+    7.	Bulgogi, Difficulty: 4
     """
     print("Here are some dish options you can choose from:\n")
     for index, dish_name in enumerate(dish_dict.keys(), 1):
