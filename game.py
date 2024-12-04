@@ -61,6 +61,21 @@ def each_level_ingredients(dish_dict: dict, dish_name: str) -> dict:
     return {1: dish_dict[dish_name]["Vegetables"], 2: dish_dict[dish_name]["Meat"]}
 
 
+def show_ingredients_for_current_level(character: dict, ingredients: dict):
+    current_level_ingredients = ""
+    if character["Level"] == 1:
+        for vegetable in ingredients[character["Level"]]:
+            if vegetable == ingredients[character["Level"]][-1]:
+                current_level_ingredients += "and " + vegetable
+            else:
+                current_level_ingredients += vegetable + ", "
+    elif character["Level"] == 2:
+        current_level_ingredients += ingredients[character["Level"]]
+
+    print(f"\nYou are currently {character["Title"]}.\n"
+          f"You need to collect {current_level_ingredients} to level up.")
+
+
 def skills() -> dict:
     return {"Rinse": {"Hit": 2, "Accuracy": 0.8},
             "Cut": {"Hit": 5, "Accuracy": 0.5},
@@ -181,6 +196,7 @@ def game():
         skill_dict = skills()
         level_dict = levels()
         character = make_character(character_name)
+        show_ingredients_for_current_level(character, ingredients)
 
         rows = 5
         columns = 5
