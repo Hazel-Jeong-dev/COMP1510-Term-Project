@@ -173,6 +173,12 @@ def show_ingredients_for_current_level(character: dict, ingredients: dict):
 
 
 def skills() -> dict:
+    """
+    Create a dictionary containing all skills available to the user throughout the game.
+
+    :postcondition: return a dictionary containing all skills available to the user throughout the game
+    :return: all skills available to the user throughout the game in a dictionary
+    """
     return {"Rinse": {"Hit": 2, "Accuracy": 0.75},
             "Cut": {"Hit": 5, "Accuracy": 0.5},
             "Fire": {"Hit": 10, "Accuracy": 0.25}}
