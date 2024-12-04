@@ -575,6 +575,23 @@ def character_has_leveled(character: dict, ingredients: dict) -> bool:
     :precondition: ingredients must be a dictionary
     :postcondition: return a boolean indicating if the character has leveled up or not
     :return: a boolean indicating if the character has leveled up or not
+
+    >>> jeyuk_ingredients = {1: ("Carrots", "Onions", "Garlic"), 2: "Pork", 3: "Jeyuk"}
+    >>> game_character = {"Name": "Chris", "Title": "Junior Chef", "Level": 1,
+    ...                   "X-coordinate": 2, "Y-coordinate": 2, "Current HP": 15, "Max HP": 15,
+    ...                   "Mastered Skills": ["Rinse"], "Items": ["Carrots", "Onions", "Garlic"]}
+    >>> character_has_leveled(game_character, jeyuk_ingredients)
+    True
+    >>> game_character = {"Name": "Chris", "Title": "Junior Chef", "Level": 2,
+    ...                   "X-coordinate": 2, "Y-coordinate": 2, "Current HP": 15, "Max HP": 20,
+    ...                   "Mastered Skills": ["Rinse", "Cut"], "Items": ["Pork"]}
+    >>> character_has_leveled(game_character, jeyuk_ingredients)
+    True
+    >>> game_character = {"Name": "Chris", "Title": "Junior Chef", "Level": 1,
+    ...                   "X-coordinate": 2, "Y-coordinate": 2, "Current HP": 15, "Max HP": 15,
+    ...                   "Mastered Skills": ["Rinse"], "Items": ["Onions", "Garlic"]}
+    >>> character_has_leveled(game_character, jeyuk_ingredients)
+    False
     """
     if character["Level"] == 1:
         return set(character["Items"]) == set(ingredients[character["Level"]])
