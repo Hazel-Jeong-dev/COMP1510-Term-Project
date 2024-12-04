@@ -61,6 +61,14 @@ def show_dish_options(dish_dict: dict):
 
 
 def get_user_dish_choice(dish_dict: dict) -> str:
+    """
+    Get the user's dish choice.
+
+    :param dish_dict: a well-defined dictionary containing the dish options
+    :precondition: dish_dict must be a dictionary
+    :postcondition: return the dish name that the user choose
+    :return: the dish name that the user choose as a string
+    """
     dish_option = input("\nSelect the dish you would like to cook for the old man: ")
     while (dish_option.strip() == "" or not dish_option.isdigit()
            or int(dish_option) not in list(range(1, len(dish_dict.keys()) + 1))):
