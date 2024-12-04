@@ -188,7 +188,7 @@ def levels() -> dict:
     """
     Create a dictionary containing all level information.
 
-    :postcondition: return a dictionary containing all level information.
+    :postcondition: return a dictionary containing all level information
     :return: all level information in a dictionary
     """
     return {1: {"Title": "Junior Chef", "Max HP": 15, "Mastered Skills": ["Rinse"]},
@@ -417,6 +417,15 @@ def character_has_leveled(character: dict, ingredients: dict) -> bool:
 
 
 def level_up_protocol(character: dict, level_dict: dict):
+    """
+    Update the character's current spec to the new level's spec.
+
+    :param character: a well-defined dictionary containing the character's information
+    :param level_dict: a well-defined dictionary containing all level information
+    :precondition: character must be a dictionary
+    :precondition: level_dict must be a dictionary
+    :postcondition: update the character's current spec to the new level's spec
+    """
     character["Level"] += 1
     character["Title"] = level_dict[character["Level"]]["Title"]
     character["X-coordinate"] = 2
