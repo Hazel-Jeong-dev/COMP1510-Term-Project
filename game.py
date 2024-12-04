@@ -3,7 +3,7 @@ Hazel Jeong
 A01166162
 """
 
-import random
+import itertools
 
 
 def game_instructions(character_name: str) -> str:
@@ -144,8 +144,11 @@ def move_character(character: dict, direction: str):
         character["X-coordinate"] -= 1
 
 
-def check_for_battles() -> bool:
-    return random.choice(["battle", "safe"]) == "battle"
+def check_for_battles(character: dict) -> bool:
+    if character["Level"] == 3:
+        return True
+    else:
+        return itertools.cycle(["battle", "safe"]) == "battle"
 
 
 def battle(character, ingredients, skill_dict):
@@ -157,6 +160,8 @@ def character_has_leveled(character: dict, ingredients: dict) -> bool:
         return set(character["Items"]) == set(ingredients[character["Level"]])
     elif character["Level"] == 2:
         return character["Items"][0] == ingredients[character["Level"]]
+    else:
+        return True
 
 
 def level_up_protocol(character: dict, level_dict: dict):
@@ -210,11 +215,12 @@ def game():
             if valid_move:
                 move_character(character, direction)
                 describe_current_location(character)
-                there_is_a_battle = check_for_battles()
+                there_is_a_battle = check_for_battles(character)
                 if there_is_a_battle:
                     battle(character, ingredients, skill_dict)
                     if character_has_leveled(character, ingredients):
                         level_up_protocol(character, level_dict)
+                        show_ingredients_for_current_level(character, ingredients)
                     describe_current_location(character)
                 achieved_goal = check_if_goal_attained(character)
             else:
