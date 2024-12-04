@@ -360,6 +360,17 @@ def is_alive(character: dict) -> bool:
     :precondition: character must be a dictionary
     :postcondition: return a boolean indicating if the character is alive or not
     :return: a boolean indicating if the character is alive or not
+
+    >>> game_character = {"Name": "Chris", "Title": "Sous Chef", "Level": 2,
+    ...                   "X-coordinate": 2, "Y-coordinate": 2, "Current HP": 20, "Max HP": 20,
+    ...                   "Mastered Skills": ["Rinse", "Cut"], "Items": []}
+    >>> is_alive(game_character)
+    True
+    >>> game_character = {"Name": "Chris", "Title": "Sous Chef", "Level": 2,
+    ...                   "X-coordinate": 3, "Y-coordinate": 0, "Current HP": 0, "Max HP": 20,
+    ...                   "Mastered Skills": ["Rinse", "Cut"], "Items": []}
+    >>> is_alive(game_character)
+    False
     """
     return character["Current HP"] > 0
 
