@@ -282,6 +282,11 @@ def skills() -> dict:
 
     :postcondition: return a dictionary containing all skills available to the user throughout the game
     :return: all skills available to the user throughout the game in a dictionary
+
+    >>> skills() # doctest: +NORMALIZE_WHITESPACE
+    {'Rinse': {'Hit': 2, 'Accuracy': 0.75},
+    'Cut': {'Hit': 5, 'Accuracy': 0.5},
+    'Fire': {'Hit': 10, 'Accuracy': 0.25}}
     """
     return {"Rinse": {"Hit": 2, "Accuracy": 0.75},
             "Cut": {"Hit": 5, "Accuracy": 0.5},
