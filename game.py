@@ -318,6 +318,10 @@ def make_character(character_name: str) -> dict:
     :precondition: character_name must be a string
     :postcondition: return a character dictionary containing all information the game needs for the game play
     :return: a character dictionary containing all information the game needs for the game play in a dictionary
+
+    >>> make_character("Chris") # doctest: +NORMALIZE_WHITESPACE
+    {'Name': 'Chris', 'Title': 'Junior Chef', 'Level': 1, 'X-coordinate': 2, 'Y-coordinate': 2,
+    'Current HP': 15, 'Max HP': 15, 'Mastered Skills': ['Rinse'], 'Items': []}
     """
     return {"Name": character_name, "Title": "Junior Chef", "Level": 1, "X-coordinate": 2, "Y-coordinate": 2,
             "Current HP": 15, "Max HP": 15, "Mastered Skills": ["Rinse"], "Items": []}
