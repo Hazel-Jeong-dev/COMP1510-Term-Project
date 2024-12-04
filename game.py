@@ -647,6 +647,18 @@ def check_if_goal_attained(character: dict, dish_name: str) -> bool:
     :precondition: dish_name must be a string
     :postcondition: return True if the character has achieved the game goal, otherwise return False
     :return: a boolean indicating whether the character has achieved the game goal
+
+    >>> game_character = {"Name": "Chris", "Title": "Head Chef", "Level": 3,
+    ...                   "X-coordinate": 3, "Y-coordinate": 4, "Current HP": 7, "Max HP": 30,
+    ...                   "Mastered Skills": ["Rinse", "Cut", "Fire"], "Items": ["Jeyuk"]}
+    >>> dish = "Jeyuk"
+    >>> check_if_goal_attained(game_character, dish)
+    True
+    >>> game_character = {"Name": "Chris", "Title": "Head Chef", "Level": 3,
+    ...                   "X-coordinate": 2, "Y-coordinate": 2, "Current HP": 30, "Max HP": 30,
+    ...                   "Mastered Skills": ["Rinse", "Cut", "Fire"], "Items": []}
+    >>> check_if_goal_attained(game_character, dish)
+    False
     """
     return character["Items"] == [dish_name]
 
