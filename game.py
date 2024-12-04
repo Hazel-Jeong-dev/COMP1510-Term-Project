@@ -45,6 +45,13 @@ def dishes() -> dict:
 
 
 def show_dish_options(dish_dict: dict):
+    """
+    Print the dish options to the user in a readable format.
+
+    :param dish_dict: a well-defined dictionary containing the dish options
+    :precondition: dish_dict must be a dictionary
+    :postcondition: print the dish options to the user in a readable format
+    """
     print("Here are some dish options you can choose from:\n")
     for index, dish_name in enumerate(dish_dict.keys(), 1):
         dish_difficulty = dish_dict[dish_name]["Difficulty"]
