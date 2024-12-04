@@ -124,6 +124,22 @@ def show_ingredients_to_get(dish_dict: dict, dish_name: str):
     :precondition: dish_name must be a string
     :precondition: dish_name must be one of the keys in dish_dict
     :postcondition: print the ingredients of the dish chosen to the user
+
+    >>> dish_options = {"Galbijjim": {"Difficulty": 5, "Vegetables": ("Carrots", "Potatoes", "Onions", "Garlic"),
+    ...                             "Meat": "Beef"},
+    ...                 "Jeyuk": {"Difficulty": 3, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Pork"},
+    ...                 "Dakgalbi": {"Difficulty": 2, "Vegetables": ("Cabbages", "Potatoes", "Onions", "Garlic"),
+    ...                             "Meat": "Chicken"},
+    ...                 "Kongbul": {"Difficulty": 3, "Vegetables": ("Bean Sprouts", "Onions", "Garlic"),
+    ...                             "Meat": "Pork"},
+    ...                 "Jjimdak": {"Difficulty": 2, "Vegetables": ("Carrots", "Potatoes", "Onions", "Garlic"),
+    ...                              "Meat": "Chicken"},
+    ...                 "Samgyeopsal": {"Difficulty": 1, "Vegetables": ("Lettuce", "Garlic"), "Meat": "Pork"},
+    ...                 "Bulgogi": {"Difficulty": 4, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Beef"}}
+    >>> dish = "Jeyuk"
+    >>> show_ingredients_to_get(dish_options, dish) # doctest: +NORMALIZE_WHITESPACE
+    You have chosen Jeyuk.
+    You will need to get Carrots, Onions, Garlic, and Pork to cook Jeyuk.
     """
     ingredients = ""
     for vegetable in dish_dict[dish_name]["Vegetables"]:
