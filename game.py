@@ -144,6 +144,15 @@ def ingredients_specs(ingredients: dict, dish_name: str) -> dict:
 
 
 def show_ingredients_for_current_level(character: dict, ingredients: dict):
+    """
+    Print what ingredients the user needs to get in the current level.
+
+    :param character: a well-defined dictionary containing the character's information
+    :param ingredients: a dictionary containing the level - ingredients pairs
+    :precondition: character must be a dictionary
+    :precondition: ingredients must be a dictionary
+    :postcondition: print an instructions on what the user needs to get in the current level
+    """
     current_level_ingredients = ""
     if character["Level"] == 1:
         for vegetable in ingredients[character["Level"]]:
