@@ -200,7 +200,8 @@ def battle(character: dict, ingredients: dict, dish_name: str, skill_dict: dict,
                   % (index, skill, skill_dict[skill]["Hit"], skill_dict[skill]["Accuracy"]))
 
         skill_to_use = input()
-        while not skill_to_use.isdigit or int(skill_to_use) not in range(1, len(character["Mastered Skills"]) + 1):
+        while (skill_to_use.strip() == "" or not skill_to_use.isdigit()
+               or int(skill_to_use) not in range(1, len(character["Mastered Skills"]) + 1)):
             print("\nInvalid input. Please try again.")
             skill_to_use = input()
 
