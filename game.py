@@ -610,6 +610,20 @@ def level_up_protocol(character: dict, level_dict: dict):
     :precondition: character must be a dictionary
     :precondition: level_dict must be a dictionary
     :postcondition: update the character's current spec to the new level's spec
+
+    >>> level_info = {1: {"Title": "Junior Chef", "Max HP": 15, "Mastered Skills": ["Rinse"]},
+    ...               2: {"Title": "Sous Chef", "Max HP": 20, "Mastered Skills": ["Rinse", "Cut"]},
+    ...               3: {"Title": "Head Chef", "Max HP": 30, "Mastered Skills": ["Rinse", "Cut", "Fire"]}}
+    >>> game_character = {"Name": "Chris", "Title": "Junior Chef", "Level": 1,
+    ...                   "X-coordinate": 3, "Y-coordinate": 0, "Current HP": 3, "Max HP": 15,
+    ...                   "Mastered Skills": ["Rinse"], "Items": ["Carrots", "Onions", "Garlic"]}
+    >>> level_up_protocol(game_character, level_info) # doctest: +NORMALIZE_WHITESPACE
+    Congratulations! You have leveled up to level 2!
+    Now you have 20 Max HP.
+    >>> game_character == {"Name": "Chris", "Title": "Sous Chef", "Level": 2,
+    ...                   "X-coordinate": 2, "Y-coordinate": 2, "Current HP": 20, "Max HP": 20,
+    ...                   "Mastered Skills": ["Rinse", "Cut"], "Items": []}
+    True
     """
     character["Level"] += 1
     character["Title"] = level_dict[character["Level"]]["Title"]
