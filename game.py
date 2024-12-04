@@ -160,6 +160,21 @@ def each_level_ingredients(dish_dict: dict, dish_name: str) -> dict:
     :precondition: dish_name must be one of the keys in dish_dict
     :postcondition: return level - ingredients pairs in a dictionary
     :return: level - ingredients pairs in a dictionary
+
+    >>> dish_options = {"Galbijjim": {"Difficulty": 5, "Vegetables": ("Carrots", "Potatoes", "Onions", "Garlic"),
+    ...                             "Meat": "Beef"},
+    ...                 "Jeyuk": {"Difficulty": 3, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Pork"},
+    ...                 "Dakgalbi": {"Difficulty": 2, "Vegetables": ("Cabbages", "Potatoes", "Onions", "Garlic"),
+    ...                             "Meat": "Chicken"},
+    ...                 "Kongbul": {"Difficulty": 3, "Vegetables": ("Bean Sprouts", "Onions", "Garlic"),
+    ...                             "Meat": "Pork"},
+    ...                 "Jjimdak": {"Difficulty": 2, "Vegetables": ("Carrots", "Potatoes", "Onions", "Garlic"),
+    ...                              "Meat": "Chicken"},
+    ...                 "Samgyeopsal": {"Difficulty": 1, "Vegetables": ("Lettuce", "Garlic"), "Meat": "Pork"},
+    ...                 "Bulgogi": {"Difficulty": 4, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Beef"}}
+    >>> dish = "Jeyuk"
+    >>> each_level_ingredients(dish_options, dish)
+    {1: ('Carrots', 'Onions', 'Garlic'), 2: 'Pork', 3: 'Jeyuk'}
     """
     return {1: dish_dict[dish_name]["Vegetables"], 2: dish_dict[dish_name]["Meat"], 3: dish_name}
 
