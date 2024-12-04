@@ -48,6 +48,8 @@ def show_dish_options(dish_dict: dict):
     """
     Print the dish options to the user in a readable format.
 
+    All dish names and each dish's difficulty level are printed to inform the user the dish options.
+
     :param dish_dict: a well-defined dictionary containing the dish options
     :precondition: dish_dict must be a dictionary
     :postcondition: print the dish options to the user in a readable format
