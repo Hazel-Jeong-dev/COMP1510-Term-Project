@@ -144,14 +144,17 @@ def character_has_leveled(character: dict, ingredients: dict) -> bool:
         return character["Items"][0] == ingredients[character["Level"]]
 
 
-def level_up_protocol(character: dict, skill_dict: dict):
+def level_up_protocol(character: dict, level_dict: dict):
     character["Level"] += 1
-    character["Max HP"] *= 2
-    character["Current HP"] = character["Max HP"]
+    character["Title"] = level_dict["Title"]
     character["X-coordinate"] = 2
     character["Y-coordinate"] = 2
-    character["Mastered Skills"].append(tuple(skill_dict)[character["Level"] - 1])
+    character["Max HP"] = level_dict["Max HP"]
+    character["Current HP"] = character["Max HP"]
+    character["Mastered Skills"] = level_dict["Mastered Skills"]
     character["Items"] = []
+    print(f"Congratulations! You have leveled up to level {character['Level']}!\n")
+    print(f"Now you {character["Max HP"]} Max HP.")
 
 
 def check_if_goal_attained(character: dict) -> bool:
@@ -195,7 +198,7 @@ def game():
                 if there_is_a_battle:
                     battle(character, ingredients, skill_dict)
                     if character_has_leveled(character, ingredients):
-                        level_up_protocol(character, skill_dict)
+                        level_up_protocol(character, level_dict)
                     describe_current_location(character)
                 achieved_goal = check_if_goal_attained(character)
             else:
