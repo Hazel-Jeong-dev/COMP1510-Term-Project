@@ -115,6 +115,18 @@ def each_level_ingredients(dish_dict: dict, dish_name: str) -> dict:
 
 
 def ingredients_specs(ingredients: dict, dish_name: str) -> dict:
+    """
+    Initialize the specs of ingredients the user needs to get throughout the game.
+
+    :param ingredients: a dictionary containing the level - ingredients pairs
+    :param dish_name: a string indicating the dish name the user chose
+    :precondition: ingredients must be a dictionary
+    :precondition: ingredients must contain keys indicating each level
+    :precondition: ingredients must contain values indicating ingredients the user needs to get in each level
+    :precondition: dish_name must be a string
+    :postcondition: initialize the specs of the ingredients including HP, Hit, and Accuracy
+    :return: ingredients' specs in a dictionary
+    """
     ingredients_dict = {}
     for vegetable in ingredients[1]:
         ingredients_dict[vegetable] = {"HP": 5, "Hit": 1, "Accuracy": 0.5}
