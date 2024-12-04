@@ -3,7 +3,7 @@ Hazel Jeong
 A01166162
 """
 
-import itertools
+import random
 
 
 def game_instructions(character_name: str) -> str:
@@ -58,7 +58,7 @@ def show_ingredients_to_get(dish_dict: dict, dish_name: str):
 
 
 def each_level_ingredients(dish_dict: dict, dish_name: str) -> dict:
-    return {1: dish_dict[dish_name]["Vegetables"], 2: dish_dict[dish_name]["Meat"]}
+    return {1: dish_dict[dish_name]["Vegetables"], 2: dish_dict[dish_name]["Meat"], 3: dish_name}
 
 
 def ingredients_specs(ingredients: dict, dish_name: str) -> dict:
@@ -94,9 +94,9 @@ def show_ingredients_for_current_level(character: dict, ingredients: dict):
 
 
 def skills() -> dict:
-    return {"Rinse": {"Hit": 2, "Accuracy": 0.8},
+    return {"Rinse": {"Hit": 2, "Accuracy": 0.75},
             "Cut": {"Hit": 5, "Accuracy": 0.5},
-            "Fire": {"Hit": 10, "Accuracy": 0.2}}
+            "Fire": {"Hit": 10, "Accuracy": 0.25}}
 
 
 def levels() -> dict:
@@ -165,11 +165,60 @@ def check_for_battles(character: dict) -> bool:
     if character["Level"] == 3:
         return True
     else:
-        return itertools.cycle(["battle", "safe"]) == "battle"
+        return random.choice(["battle", "safe"]) == "battle"
 
 
-def battle(character, ingredients, dish_name, skill_dict, ingredients_specs_dict):
-    pass
+def battle(character: dict, ingredients: dict, dish_name: str, skill_dict: dict, ingredients_specs_dict: dict):
+    if character["Level"] == 1:
+        ingredient_encountered = random.choice(ingredients[character["Level"]])
+        print(f"You see {ingredient_encountered} in front of you. Let's get it!")
+    elif character["Level"] == 2:
+        ingredient_encountered = ingredients[character["Level"]]
+        print(f"Now it's time to prep some {ingredient_encountered}!")
+    else:
+        ingredient_encountered = dish_name
+        print(f"Finally, it's time to cook {ingredient_encountered} using all ingredients you collected so far!")
+
+    ingredient_hit_chances = ["Hit" for _ in range(int(4 * ingredients_specs_dict[ingredient_encountered]["Accuracy"]))]
+    for _ in range(4 - len(ingredient_hit_chances)):
+        ingredient_hit_chances.append("Miss")
+
+    while ingredients_specs_dict[ingredient_encountered]["HP"] > 0:
+        print(f"The remaining HP of {ingredient_encountered} is {ingredients_specs_dict[ingredient_encountered]["HP"]}")
+
+        print("Choose a skill you wish to use:")
+        for index, skill in enumerate(character["Mastered Skills"], 1):
+            print("%d.\t%s - Hit: %s, Accuracy: %s"
+                  % (index, skill, skill_dict[skill]["Hit"], skill_dict[skill]["Accuracy"]))
+
+        skill_to_use = input()
+        while not skill_to_use.isdigit or int(skill_to_use) not in range(1, len(character["Mastered Skills"]) + 1):
+            print("\nInvalid input. Please try again.")
+            skill_to_use = input()
+
+        chosen_skill_name = character["Mastered Skills"][int(skill_to_use) - 1]
+        print(f"You attacked {ingredient_encountered} using {chosen_skill_name}!")
+
+        skill_hit_chances = ["Hit" for _ in range(int(4 * skill_dict[chosen_skill_name]["Accuracy"]))]
+        for _ in range(4 - len(skill_hit_chances)):
+            skill_hit_chances.append("Miss")
+
+        if random.choice(skill_hit_chances) == "Hit":
+            print(f"Your attack was successful!")
+            ingredients_specs_dict[ingredient_encountered]["HP"] -= skill_dict[chosen_skill_name]["Hit"]
+        else:
+            print(f"Your attack was missed!")
+
+        if random.choice(ingredient_hit_chances) == "Hit":
+            print(f"{ingredient_encountered} attacked you back!")
+            character["Current HP"] -= ingredients_specs_dict[ingredient_encountered]["Hit"]
+            print(f"You now have {character["Current HP"]} HP left.")
+        else:
+            print(f"{ingredient_encountered}'s attack was missed!")
+
+    print(f"Congratulations! You've collected {ingredient_encountered}.")
+    character["Items"].append(ingredient_encountered)
+    print(character)
 
 
 def character_has_leveled(character: dict, ingredients: dict) -> bool:
