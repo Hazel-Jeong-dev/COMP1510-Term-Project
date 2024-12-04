@@ -183,8 +183,9 @@ def battle(character: dict, ingredients: dict, dish_name: str, skill_dict: dict,
     for _ in range(4 - len(ingredient_hit_chances)):
         ingredient_hit_chances.append("Miss")
 
-    while ingredients_specs_dict[ingredient_encountered]["HP"] > 0:
-        print(f"The remaining HP of {ingredient_encountered} is {ingredients_specs_dict[ingredient_encountered]["HP"]}")
+    while ingredients_specs_dict[ingredient_encountered]["HP"] > 0 and character["Current HP"] > 0:
+        print(f"The remaining HP of {ingredient_encountered} is "
+              f"{ingredients_specs_dict[ingredient_encountered]["HP"]}.")
 
         print("Choose a skill you wish to use:")
         for index, skill in enumerate(character["Mastered Skills"], 1):
@@ -218,7 +219,6 @@ def battle(character: dict, ingredients: dict, dish_name: str, skill_dict: dict,
 
     print(f"Congratulations! You've collected {ingredient_encountered}.")
     character["Items"].append(ingredient_encountered)
-    print(character)
 
 
 def character_has_leveled(character: dict, ingredients: dict) -> bool:
