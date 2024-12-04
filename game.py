@@ -236,6 +236,12 @@ def is_alive(character: dict) -> bool:
 
 
 def get_user_direction_choice() -> str:
+    """
+    Get the user's direction choice.
+
+    :postcondition: return the user's direction choice
+    :return: the user's direction choice as a string
+    """
     print("Enter the direction you wish to travel: ")
     directions = ("North", "South", "East", "West")
     for index, direction in enumerate(directions, 1):
