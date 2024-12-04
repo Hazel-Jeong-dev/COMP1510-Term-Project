@@ -67,6 +67,12 @@ def skills() -> dict:
             "Fire": {"Hit": 10, "Accuracy": 0.2}}
 
 
+def levels() -> dict:
+    return {1: {"Title": "Junior Chef", "Max HP": 5, "Mastered Skills": ["Rinse"]},
+            2: {"Title": "Sous Chef", "Max HP": 15, "Mastered Skills": ["Rinse", "Cut"]},
+            3: {"Title": "Head Chef", "Max HP": 30, "Mastered Skills": ["Rinse", "Cut", "Fire"]}}
+
+
 def make_character(character_name: str) -> dict:
     return {"Name": character_name, "X-coordinate": 2, "Y-coordinate": 2,
             "Current HP": 5, "Max HP": 5, "Level": 1, "Mastered Skills": ["Rinse"], "Items": []}
@@ -170,6 +176,7 @@ def game():
         ingredients = each_level_ingredients(dish_dict, dish_name)
 
         skill_dict = skills()
+        level_dict = levels()
         character = make_character(character_name)
 
         rows = 5
