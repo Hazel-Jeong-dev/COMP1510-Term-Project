@@ -328,6 +328,21 @@ def check_for_battles(character: dict) -> bool:
 
 
 def battle(character: dict, ingredients: dict, dish_name: str, skill_dict: dict, ingredients_specs_dict: dict):
+    """
+    Run the battle.
+
+    :param character: a well-defined dictionary containing the character's information
+    :param ingredients: a dictionary containing the level - ingredients pairs
+    :param dish_name: a string indicating the dish name the user chose
+    :param skill_dict: a well-defined dictionary containing all skills available throughout the game
+    :param ingredients_specs_dict: a dictionary containing the specs of the ingredients including HP, Hit, and Accuracy
+    :precondition: character must be a dictionary
+    :precondition: ingredients must be a dictionary
+    :precondition: dish_name must be a string
+    :precondition: skill_dict must be a dictionary
+    :precondition: ingredients_specs_dict must be a dictionary
+    :postcondition: run the battle
+    """
     if character["Level"] == 1:
         ingredient_encountered = random.choice(ingredients[character["Level"]])
         print(f"You see {ingredient_encountered} in front of you. Let's get it!")
