@@ -100,6 +100,17 @@ def show_ingredients_to_get(dish_dict: dict, dish_name: str):
 
 
 def each_level_ingredients(dish_dict: dict, dish_name: str) -> dict:
+    """
+    Return a dictionary containing level - ingredients pairs.
+
+    :param dish_dict: a well-defined dictionary containing the dish options
+    :param dish_name: a string indicating the dish name the user chose
+    :precondition: dish_dict must be a dictionary
+    :precondition: dish_name must be a string
+    :precondition: dish_name must be one of the keys in dish_dict
+    :postcondition: return level - ingredients pairs in a dictionary
+    :return: level - ingredients pairs in a dictionary
+    """
     return {1: dish_dict[dish_name]["Vegetables"], 2: dish_dict[dish_name]["Meat"], 3: dish_name}
 
 
