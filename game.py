@@ -191,6 +191,23 @@ def ingredients_specs(ingredients: dict, dish_name: str) -> dict:
     :precondition: dish_name must be a string
     :postcondition: initialize the specs of the ingredients including HP, Hit, and Accuracy
     :return: ingredients' specs in a dictionary
+
+    >>> jeyuk_ingredients = {1: ("Carrots", "Onions", "Garlic"), 2: "Pork", 3: "Jeyuk"}
+    >>> dish = "Jeyuk"
+    >>> ingredients_specs(jeyuk_ingredients, dish) # doctest: +NORMALIZE_WHITESPACE
+    {'Carrots': {'HP': 5, 'Hit': 1, 'Accuracy': 0.5},
+    'Onions': {'HP': 5, 'Hit': 1, 'Accuracy': 0.5},
+    'Garlic': {'HP': 5, 'Hit': 1, 'Accuracy': 0.5},
+    'Pork': {'HP': 10, 'Hit': 3, 'Accuracy': 0.5},
+    'Jeyuk': {'HP': 20, 'Hit': 5, 'Accuracy': 0.75}}
+    >>> bulgogi_ingredients = {1: ("Carrots", "Onions", "Garlic"), 2: "Beef", 3: "Bulgogi"}
+    >>> dish = "Bulgogi"
+    >>> ingredients_specs(bulgogi_ingredients, dish) # doctest: +NORMALIZE_WHITESPACE
+    {'Carrots': {'HP': 5, 'Hit': 1, 'Accuracy': 0.5},
+    'Onions': {'HP': 5, 'Hit': 1, 'Accuracy': 0.5},
+    'Garlic': {'HP': 5, 'Hit': 1, 'Accuracy': 0.5},
+    'Beef': {'HP': 10, 'Hit': 4, 'Accuracy': 0.75},
+    'Bulgogi': {'HP': 20, 'Hit': 5, 'Accuracy': 0.75}}
     """
     ingredients_dict = {}
     for vegetable in ingredients[1]:
