@@ -310,6 +310,17 @@ def move_character(character: dict, direction: str):
 
 
 def check_for_battles(character: dict) -> bool:
+    """
+    Check if the character is about to have a battle in the current location.
+
+    The chance of having a battle is 50% when the character is at level 1 or 2, and the chance becomes 100%
+    when the character is at level 3.
+
+    :param character: a well-defined dictionary containing the character's information
+    :precondition: character must be a dictionary
+    :postcondition: return True if the character is about to have a battle, otherwise False
+    :return: a boolean indicating whether the character is about to have a battle
+    """
     if character["Level"] == 3:
         return True
     else:
