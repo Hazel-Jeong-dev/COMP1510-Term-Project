@@ -299,6 +299,11 @@ def levels() -> dict:
 
     :postcondition: return a dictionary containing all level information
     :return: all level information in a dictionary
+
+    >>> levels() # doctest: +NORMALIZE_WHITESPACE
+    {1: {'Title': 'Junior Chef', 'Max HP': 15, 'Mastered Skills': ['Rinse']},
+    2: {'Title': 'Sous Chef', 'Max HP': 20, 'Mastered Skills': ['Rinse', 'Cut']},
+    3: {'Title': 'Head Chef', 'Max HP': 30, 'Mastered Skills': ['Rinse', 'Cut', 'Fire']}}
     """
     return {1: {"Title": "Junior Chef", "Max HP": 15, "Mastered Skills": ["Rinse"]},
             2: {"Title": "Sous Chef", "Max HP": 20, "Mastered Skills": ["Rinse", "Cut"]},
