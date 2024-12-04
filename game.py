@@ -182,7 +182,7 @@ def battle(character: dict, ingredients: dict, dish_name: str, skill_dict: dict,
         print(f"It's time to prep some {ingredient_encountered}!")
     else:
         ingredient_encountered = dish_name
-        print(f"Finally, it's time to cook {ingredient_encountered} using all ingredients you collected so far!")
+        print(f"Finally, it's time to cook {ingredient_encountered} using all ingredients you have collected so far!")
 
     ingredient_hit_chances = ["Hit" for _ in range(int(4 * ingredients_specs_dict[ingredient_encountered]["Accuracy"]))]
     for _ in range(4 - len(ingredient_hit_chances)):
