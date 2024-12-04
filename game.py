@@ -421,7 +421,7 @@ def validate_move(rows: int, columns: int, character: dict, direction: str) -> b
     >>> board_rows = 5
     >>> board_columns = 5
     >>> game_character = {"Name": "Chris", "Title": "Sous Chef", "Level": 2,
-    ...                   "X-coordinate": 3, "Y-coordinate": 0, "Current HP": 0, "Max HP": 20,
+    ...                   "X-coordinate": 3, "Y-coordinate": 0, "Current HP": 15, "Max HP": 20,
     ...                   "Mastered Skills": ["Rinse", "Cut"], "Items": []}
     >>> move_direction = "South"
     >>> validate_move(board_rows, board_columns, game_character, move_direction)
