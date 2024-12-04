@@ -61,16 +61,19 @@ def each_level_ingredients(dish_dict: dict, dish_name: str) -> dict:
     return {1: dish_dict[dish_name]["Vegetables"], 2: dish_dict[dish_name]["Meat"]}
 
 
-def ingredients_specs(ingredients: dict) -> dict:
+def ingredients_specs(ingredients: dict, dish_name: str) -> dict:
     ingredients_dict = {}
     for vegetable in ingredients[1]:
         ingredients_dict[vegetable] = {"HP": 5, "Hit": 1, "Accuracy": 0.5}
+
     if ingredients[2] == "Chicken":
         ingredients_dict["Chicken"] = {"HP": 10, "Hit": 2, "Accuracy": 0.5}
     elif ingredients[2] == "Pork":
         ingredients_dict["Pork"] = {"HP": 10, "Hit": 3, "Accuracy": 0.5}
     else:
         ingredients_dict["Beef"] = {"HP": 10, "Hit": 4, "Accuracy": 0.75}
+
+    ingredients_dict[dish_name] = {"HP": 20, "Hit": 5, "Accuracy": 0.75}
 
     return ingredients_dict
 
@@ -165,7 +168,7 @@ def check_for_battles(character: dict) -> bool:
         return itertools.cycle(["battle", "safe"]) == "battle"
 
 
-def battle(character, ingredients, skill_dict, ingredients_specs_dict):
+def battle(character, ingredients, dish_name, skill_dict, ingredients_specs_dict):
     pass
 
 
@@ -211,7 +214,7 @@ def game():
         dish_name = get_user_dish_choice(dish_dict)
         show_ingredients_to_get(dish_dict, dish_name)
         ingredients = each_level_ingredients(dish_dict, dish_name)
-        ingredients_specs_dict = ingredients_specs(ingredients)
+        ingredients_specs_dict = ingredients_specs(ingredients, dish_name)
 
         skill_dict = skills()
         level_dict = levels()
@@ -232,7 +235,7 @@ def game():
                 describe_current_location(character)
                 there_is_a_battle = check_for_battles(character)
                 if there_is_a_battle:
-                    battle(character, ingredients, skill_dict, ingredients_specs_dict)
+                    battle(character, ingredients, dish_name, skill_dict, ingredients_specs_dict)
                     if character_has_leveled(character, ingredients):
                         level_up_protocol(character, level_dict)
                         show_ingredients_for_current_level(character, ingredients)
