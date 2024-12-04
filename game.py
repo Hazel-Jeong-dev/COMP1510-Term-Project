@@ -81,6 +81,16 @@ def get_user_dish_choice(dish_dict: dict) -> str:
 
 
 def show_ingredients_to_get(dish_dict: dict, dish_name: str):
+    """
+    Print the ingredients the user needs to get throughout the game based on the dish choice.
+
+    :param dish_dict: a well-defined dictionary containing the dish options
+    :param dish_name: a string indicating the dish name the user chose
+    :precondition: dish_dict must be a dictionary
+    :precondition: dish_name must be a string
+    :precondition: dish_name must be one of the keys in dish_dict
+    :postcondition: print the ingredients of the dish chosen to the user
+    """
     ingredients = ""
     for vegetable in dish_dict[dish_name]["Vegetables"]:
         ingredients += vegetable + ", "
