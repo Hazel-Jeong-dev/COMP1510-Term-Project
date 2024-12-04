@@ -185,6 +185,12 @@ def skills() -> dict:
 
 
 def levels() -> dict:
+    """
+    Create a dictionary containing all level information.
+
+    :postcondition: return a dictionary containing all level information.
+    :return: all level information in a dictionary
+    """
     return {1: {"Title": "Junior Chef", "Max HP": 15, "Mastered Skills": ["Rinse"]},
             2: {"Title": "Sous Chef", "Max HP": 20, "Mastered Skills": ["Rinse", "Cut"]},
             3: {"Title": "Head Chef", "Max HP": 30, "Mastered Skills": ["Rinse", "Cut", "Fire"]}}
