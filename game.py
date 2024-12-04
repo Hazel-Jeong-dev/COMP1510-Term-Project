@@ -224,6 +224,14 @@ def describe_current_location(character: dict):
 
 
 def is_alive(character: dict) -> bool:
+    """
+    Check if the character is alive or not.
+
+    :param character: a well-defined dictionary containing the character's information
+    :precondition: character must be a dictionary
+    :postcondition: return a boolean indicating if the character is alive or not
+    :return: a boolean indicating if the character is alive or not
+    """
     return character["Current HP"] > 0
 
 
