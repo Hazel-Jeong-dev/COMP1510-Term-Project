@@ -174,7 +174,7 @@ def battle(character: dict, ingredients: dict, dish_name: str, skill_dict: dict,
         print(f"You see {ingredient_encountered} in front of you. Let's get it!")
     elif character["Level"] == 2:
         ingredient_encountered = ingredients[character["Level"]]
-        print(f"Now it's time to prep some {ingredient_encountered}!")
+        print(f"It's time to prep some {ingredient_encountered}!")
     else:
         ingredient_encountered = dish_name
         print(f"Finally, it's time to cook {ingredient_encountered} using all ingredients you collected so far!")
@@ -217,8 +217,9 @@ def battle(character: dict, ingredients: dict, dish_name: str, skill_dict: dict,
         else:
             print(f"{ingredient_encountered}'s attack was missed!")
 
-    print(f"Congratulations! You've collected {ingredient_encountered}.")
-    character["Items"].append(ingredient_encountered)
+    if character["Current HP"] > 0:
+        print(f"Congratulations! You've collected {ingredient_encountered}.")
+        character["Items"].append(ingredient_encountered)
 
 
 def character_has_leveled(character: dict, ingredients: dict) -> bool:
