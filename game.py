@@ -86,11 +86,16 @@ def show_ingredients_for_current_level(character: dict, ingredients: dict):
                 current_level_ingredients += "and " + vegetable
             else:
                 current_level_ingredients += vegetable + ", "
+        print(f"\nYou are currently {character["Title"]}.\n"
+              f"You need to collect {current_level_ingredients} to level up.")
     elif character["Level"] == 2:
         current_level_ingredients += ingredients[character["Level"]]
-
-    print(f"\nYou are currently {character["Title"]}.\n"
-          f"You need to collect {current_level_ingredients} to level up.")
+        print(f"\nYou are currently {character["Title"]}.\n"
+              f"You need to collect {current_level_ingredients} to level up.")
+    else:
+        current_level_ingredients += ingredients[character["Level"]]
+        print(f"\nYou are currently {character["Title"]}.\n"
+              f"You can now cook {current_level_ingredients} to win the game.")
 
 
 def skills() -> dict:
