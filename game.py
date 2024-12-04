@@ -14,6 +14,9 @@ def game_instructions(character_name: str) -> str:
     :precondition: character_name must be a string
     :postcondition: print the game instructions to the user
     :return: a string containing the game instructions
+
+    >>> game_instructions("Chris") # doctest: +ELLIPSIS
+    '\\nGood day, Chris. You are a junior chef who was travelling...all ingredients you got so far. \\n\\n'
     """
     return (f"\nGood day, {character_name}. You are a junior chef who was travelling to a village known as a dream \n"
             f"land for chefs. After a few days of travelling, you decided to take a nap in the shade of a big tree. \n"
