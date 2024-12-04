@@ -439,6 +439,16 @@ def level_up_protocol(character: dict, level_dict: dict):
 
 
 def check_if_goal_attained(character: dict, dish_name: str) -> bool:
+    """
+    Check if the character has achieved the game goal or not.
+
+    :param character: a well-defined dictionary containing the character's information
+    :param dish_name: a string indicating the dish name the user chose
+    :precondition: character must be a dictionary
+    :precondition: dish_name must be a string
+    :postcondition: return True if the character has achieved the game goal, otherwise return False
+    :return: a boolean indicating whether the character has achieved the game goal
+    """
     return character["Items"] == [dish_name]
 
 
