@@ -38,12 +38,13 @@ def show_dish_options(dish_dict: dict):
 
 
 def get_user_dish_choice(dish_dict: dict) -> str:
-    dish_number = int(input("\nSelect the dish you would like to cook for the old man: "))
-    while dish_number not in range(1, len(dish_dict.keys()) + 1):
+    dish_option = input("\nSelect the dish you would like to cook for the old man: ")
+    while (dish_option.strip() == "" or not dish_option.isdigit()
+           or int(dish_option) not in list(range(1, len(dish_dict.keys()) + 1))):
         print(f"Invalid input. Please select a number between 1 and {len(dish_dict.keys())}.")
-        dish_number = int(input("\nSelect the dish you would like to cook for the old man: "))
+        dish_option = input("\nSelect the dish you would like to cook for the old man: ")
     dish_tuple = tuple(dish_dict)
-    dish_name = dish_tuple[dish_number - 1]
+    dish_name = dish_tuple[int(dish_option) - 1]
 
     return dish_name
 
