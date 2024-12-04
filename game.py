@@ -289,6 +289,16 @@ def validate_move(rows: int, columns: int, character: dict, direction: str) -> b
 
 
 def move_character(character: dict, direction: str):
+    """
+    Move the character to the direction given.
+
+    :param character: a well-defined dictionary containing the character's information
+    :param direction: a string indicating the direction the user wish to travel
+    :precondition: character must be a dictionary
+    :precondition: direction must be a string
+    :precondition: direction must contain one value among "North", "South", "East", and "West"
+    :postcondition: update the character's X- or Y-coordinates
+    """
     if direction == "North":
         character["Y-coordinate"] -= 1
     elif direction == "South":
