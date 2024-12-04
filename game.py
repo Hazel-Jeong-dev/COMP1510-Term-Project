@@ -133,16 +133,17 @@ def get_user_direction_choice() -> str:
     for index, direction in enumerate(directions, 1):
         print("%d.\t%s" % (index, direction))
 
-    direction_choice = int(input())
-    while direction_choice not in range(1, len(directions) + 1):
+    direction_choice = input()
+    while (direction_choice.strip() == "" or not direction_choice.isdigit()
+           or int(direction_choice) not in range(1, len(directions) + 1)):
         print("\nInvalid input. Please try again.")
         print("Enter the direction you wish to travel: ")
         directions = ("North", "South", "East", "West")
         for index, direction in enumerate(directions, 1):
             print("%d.\t%s" % (index, direction))
-        direction_choice = int(input())
+        direction_choice = input()
 
-    return directions[direction_choice - 1]
+    return directions[int(direction_choice) - 1]
 
 
 def validate_move(rows: int, columns: int, character: dict, direction: str) -> bool:
