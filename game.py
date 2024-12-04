@@ -28,6 +28,12 @@ def game_instructions(character_name: str) -> str:
 
 
 def dishes() -> dict:
+    """
+    Create a dictionary containing all dish options the user can choose.
+
+    :postcondition: return a dictionary containing the dish options
+    :return: the dish options in a dictionary
+    """
     return {"Galbijjim": {"Difficulty": 5, "Vegetables": ("Carrots", "Potatoes", "Onions", "Garlic"), "Meat": "Beef"},
             "Jeyuk": {"Difficulty": 3, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Pork"},
             "Dakgalbi": {"Difficulty": 2, "Vegetables": ("Cabbages", "Potatoes", "Onions", "Garlic"),
