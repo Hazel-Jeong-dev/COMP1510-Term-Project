@@ -74,8 +74,8 @@ def levels() -> dict:
 
 
 def make_character(character_name: str) -> dict:
-    return {"Name": character_name, "X-coordinate": 2, "Y-coordinate": 2,
-            "Current HP": 5, "Max HP": 5, "Level": 1, "Mastered Skills": ["Rinse"], "Items": []}
+    return {"Name": character_name, "Title": "Junior Chef", "Level": 1, "X-coordinate": 2, "Y-coordinate": 2,
+            "Current HP": 5, "Max HP": 5, "Mastered Skills": ["Rinse"], "Items": []}
 
 
 def describe_current_location(character: dict):
