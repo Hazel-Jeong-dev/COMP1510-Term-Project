@@ -232,15 +232,15 @@ def character_has_leveled(character: dict, ingredients: dict) -> bool:
 
 def level_up_protocol(character: dict, level_dict: dict):
     character["Level"] += 1
-    character["Title"] = level_dict["Title"]
+    character["Title"] = level_dict[character["Level"]]["Title"]
     character["X-coordinate"] = 2
     character["Y-coordinate"] = 2
-    character["Max HP"] = level_dict["Max HP"]
+    character["Max HP"] = level_dict[character["Level"]]["Max HP"]
     character["Current HP"] = character["Max HP"]
-    character["Mastered Skills"] = level_dict["Mastered Skills"]
+    character["Mastered Skills"] = level_dict[character["Level"]]["Mastered Skills"]
     character["Items"] = []
-    print(f"Congratulations! You have leveled up to level {character['Level']}!\n")
-    print(f"Now you {character["Max HP"]} Max HP.")
+    print(f"\nCongratulations! You have leveled up to level {character['Level']}!")
+    print(f"Now you have {character["Max HP"]} Max HP.")
 
 
 def check_if_goal_attained(character: dict) -> bool:
