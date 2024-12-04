@@ -210,6 +210,13 @@ def make_character(character_name: str) -> dict:
 
 
 def describe_current_location(character: dict):
+    """
+    Print the current location and the current HP of the character to the user.
+
+    :param character: a well-defined dictionary containing the character's information
+    :precondition: character must be a dictionary
+    :postcondition: print the current location and the HP of the character to the user
+    """
     current_coordinate = (character["X-coordinate"], character["Y-coordinate"])
     current_hp = character["Current HP"]
 
