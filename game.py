@@ -234,6 +234,28 @@ def show_ingredients_for_current_level(character: dict, ingredients: dict):
     :precondition: character must be a dictionary
     :precondition: ingredients must be a dictionary
     :postcondition: print an instructions on what the user needs to get in the current level
+
+    >>> game_character = {"Name": "Chris", "Title": "Junior Chef", "Level": 1,
+    ...                   "X-coordinate": 2, "Y-coordinate": 2, "Current HP": 15, "Max HP": 15,
+    ...                   "Mastered Skills": ["Rinse"], "Items": []}
+    >>> jeyuk_ingredients = {1: ("Carrots", "Onions", "Garlic"), 2: "Pork", 3: "Jeyuk"}
+    >>> show_ingredients_for_current_level(game_character, jeyuk_ingredients) # doctest: +NORMALIZE_WHITESPACE
+    You are currently Junior Chef.
+    You need to collect Carrots, Onions, and Garlic to level up.
+    >>> game_character = {"Name": "Chris", "Title": "Sous Chef", "Level": 2,
+    ...                   "X-coordinate": 2, "Y-coordinate": 2, "Current HP": 20, "Max HP": 20,
+    ...                   "Mastered Skills": ["Rinse", "Cut"], "Items": []}
+    >>> jeyuk_ingredients = {1: ("Carrots", "Onions", "Garlic"), 2: "Pork", 3: "Jeyuk"}
+    >>> show_ingredients_for_current_level(game_character, jeyuk_ingredients) # doctest: +NORMALIZE_WHITESPACE
+    You are currently Sous Chef.
+    You need to collect Pork to level up.
+    >>> game_character = {"Name": "Chris", "Title": "Head Chef", "Level": 3,
+    ...                   "X-coordinate": 2, "Y-coordinate": 2, "Current HP": 30, "Max HP": 30,
+    ...                   "Mastered Skills": ["Rinse", "Cut", "Fire"], "Items": []}
+    >>> jeyuk_ingredients = {1: ("Carrots", "Onions", "Garlic"), 2: "Pork", 3: "Jeyuk"}
+    >>> show_ingredients_for_current_level(game_character, jeyuk_ingredients) # doctest: +NORMALIZE_WHITESPACE
+    You are currently Head Chef.
+    You can now cook Jeyuk to win the game.
     """
     current_level_ingredients = ""
     if character["Level"] == 1:
