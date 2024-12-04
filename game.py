@@ -334,6 +334,17 @@ def describe_current_location(character: dict):
     :param character: a well-defined dictionary containing the character's information
     :precondition: character must be a dictionary
     :postcondition: print the current location and the HP of the character to the user
+
+    >>> game_character = {"Name": "Chris", "Title": "Sous Chef", "Level": 2,
+    ...                   "X-coordinate": 2, "Y-coordinate": 2, "Current HP": 20, "Max HP": 20,
+    ...                   "Mastered Skills": ["Rinse", "Cut"], "Items": []}
+    >>> describe_current_location(game_character) # doctest: +NORMALIZE_WHITESPACE
+    You are currently at (2, 2), and you have 20 HP left.
+    >>> game_character = {"Name": "Chris", "Title": "Sous Chef", "Level": 2,
+    ...                   "X-coordinate": 3, "Y-coordinate": 0, "Current HP": 6, "Max HP": 20,
+    ...                   "Mastered Skills": ["Rinse", "Cut"], "Items": []}
+    >>> describe_current_location(game_character) # doctest: +NORMALIZE_WHITESPACE
+    You are currently at (3, 0), and you have 6 HP left.
     """
     current_coordinate = (character["X-coordinate"], character["Y-coordinate"])
     current_hp = character["Current HP"]
