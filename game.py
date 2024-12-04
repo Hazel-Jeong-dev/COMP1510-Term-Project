@@ -105,14 +105,14 @@ def skills() -> dict:
 
 
 def levels() -> dict:
-    return {1: {"Title": "Junior Chef", "Max HP": 5, "Mastered Skills": ["Rinse"]},
-            2: {"Title": "Sous Chef", "Max HP": 15, "Mastered Skills": ["Rinse", "Cut"]},
+    return {1: {"Title": "Junior Chef", "Max HP": 15, "Mastered Skills": ["Rinse"]},
+            2: {"Title": "Sous Chef", "Max HP": 20, "Mastered Skills": ["Rinse", "Cut"]},
             3: {"Title": "Head Chef", "Max HP": 30, "Mastered Skills": ["Rinse", "Cut", "Fire"]}}
 
 
 def make_character(character_name: str) -> dict:
     return {"Name": character_name, "Title": "Junior Chef", "Level": 1, "X-coordinate": 2, "Y-coordinate": 2,
-            "Current HP": 5, "Max HP": 5, "Mastered Skills": ["Rinse"], "Items": []}
+            "Current HP": 15, "Max HP": 15, "Mastered Skills": ["Rinse"], "Items": []}
 
 
 def describe_current_location(character: dict):
