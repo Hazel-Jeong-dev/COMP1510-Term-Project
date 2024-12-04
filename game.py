@@ -261,6 +261,23 @@ def get_user_direction_choice() -> str:
 
 
 def validate_move(rows: int, columns: int, character: dict, direction: str) -> bool:
+    """
+    Validate the movement of the character.
+
+    :param rows: an integer indicating the number of rows of the board
+    :param columns: an integer indicating the number of columns of the board
+    :param character: a well-defined dictionary containing the character's information
+    :param direction: a string indicating the direction the user wish to travel
+    :precondition: rows must be a non-zero integer
+    :precondition: rows must be a positive integer
+    :precondition: columns must be a non-zero integer
+    :precondition: columns must be a positive integer
+    :precondition: character must be a dictionary
+    :precondition: direction must be a string
+    :precondition: direction must contain one value among "North", "South", "East", and "West"
+    :postcondition: validate if the character can travel to the direction from the current location
+    :return: validation result as a boolean
+    """
     if direction == "North":
         return character["Y-coordinate"] > 0
     elif direction == "South":
