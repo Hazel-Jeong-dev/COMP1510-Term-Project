@@ -417,6 +417,18 @@ def validate_move(rows: int, columns: int, character: dict, direction: str) -> b
     :precondition: direction must contain one value among "North", "South", "East", and "West"
     :postcondition: validate if the character can travel to the direction from the current location
     :return: validation result as a boolean
+
+    >>> board_rows = 5
+    >>> board_columns = 5
+    >>> game_character = {"Name": "Chris", "Title": "Sous Chef", "Level": 2,
+    ...                   "X-coordinate": 3, "Y-coordinate": 0, "Current HP": 0, "Max HP": 20,
+    ...                   "Mastered Skills": ["Rinse", "Cut"], "Items": []}
+    >>> move_direction = "South"
+    >>> validate_move(board_rows, board_columns, game_character, move_direction)
+    True
+    >>> move_direction = "North"
+    >>> validate_move(board_rows, board_columns, game_character, move_direction)
+    False
     """
     if direction == "North":
         return character["Y-coordinate"] > 0
