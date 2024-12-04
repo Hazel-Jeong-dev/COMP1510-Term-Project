@@ -300,7 +300,8 @@ def game():
                 print("\nYou've reached to a wall. Please enter the direction you wish to travel again.")
                 describe_current_location(character)
         if is_alive(character):
-            print("\nCongratulations! You won!")
+            print("\nCongratulations! You won the game!")
+            print("The old guy is very pleased with the dish you cooked. Well done!")
         else:
             print("\nSorry, you died.")
 
