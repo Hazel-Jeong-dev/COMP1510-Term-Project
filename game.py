@@ -197,6 +197,14 @@ def levels() -> dict:
 
 
 def make_character(character_name: str) -> dict:
+    """
+    Create a character dictionary containing all information the game needs for the game play.
+
+    :param character_name: a string containing the character's name that the user input
+    :precondition: character_name must be a string
+    :postcondition: return a character dictionary containing all information the game needs for the game play
+    :return: a character dictionary containing all information the game needs for the game play in a dictionary
+    """
     return {"Name": character_name, "Title": "Junior Chef", "Level": 1, "X-coordinate": 2, "Y-coordinate": 2,
             "Current HP": 15, "Max HP": 15, "Mastered Skills": ["Rinse"], "Items": []}
 
