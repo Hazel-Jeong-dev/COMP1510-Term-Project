@@ -30,7 +30,7 @@ class TestEachLevelIngredients(TestCase):
             "Bulgogi": {"Difficulty": 4, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Beef"}}
         dish = "Galbijjim"
         actual = game.each_level_ingredients(dishes, dish)
-        expected = {1: ("Carrots", "Potatoes", "Onions", "Garlic"), 2: 'Beef', 3: 'Galbijjim'}
+        expected = {1: ("Carrots", "Potatoes", "Onions", "Garlic"), 2: "Beef", 3: "Galbijjim"}
         self.assertEqual(actual, expected)
 
     def test_each_level_ingredients_jeyuk(self):
@@ -45,7 +45,7 @@ class TestEachLevelIngredients(TestCase):
             "Bulgogi": {"Difficulty": 4, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Beef"}}
         dish = "Jeyuk"
         actual = game.each_level_ingredients(dishes, dish)
-        expected = {1: ("Carrots", "Onions", "Garlic"), 2: 'Pork', 3: 'Jeyuk'}
+        expected = {1: ("Carrots", "Onions", "Garlic"), 2: "Pork", 3: "Jeyuk"}
         self.assertEqual(actual, expected)
 
     def test_each_level_ingredients_dakgalbi(self):
@@ -60,7 +60,7 @@ class TestEachLevelIngredients(TestCase):
             "Bulgogi": {"Difficulty": 4, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Beef"}}
         dish = "Dakgalbi"
         actual = game.each_level_ingredients(dishes, dish)
-        expected = {1: ("Cabbages", "Potatoes", "Onions", "Garlic"), 2: 'Chicken', 3: 'Dakgalbi'}
+        expected = {1: ("Cabbages", "Potatoes", "Onions", "Garlic"), 2: "Chicken", 3: "Dakgalbi"}
         self.assertEqual(actual, expected)
 
     def test_each_level_ingredients_kongbul(self):
@@ -75,7 +75,7 @@ class TestEachLevelIngredients(TestCase):
             "Bulgogi": {"Difficulty": 4, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Beef"}}
         dish = "Kongbul"
         actual = game.each_level_ingredients(dishes, dish)
-        expected = {1: ("Bean Sprouts", "Onions", "Garlic"), 2: 'Pork', 3: 'Kongbul'}
+        expected = {1: ("Bean Sprouts", "Onions", "Garlic"), 2: "Pork", 3: "Kongbul"}
         self.assertEqual(actual, expected)
 
     def test_each_level_ingredients_jjimdak(self):
@@ -90,7 +90,7 @@ class TestEachLevelIngredients(TestCase):
             "Bulgogi": {"Difficulty": 4, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Beef"}}
         dish = "Jjimdak"
         actual = game.each_level_ingredients(dishes, dish)
-        expected = {1: ("Carrots", "Potatoes", "Onions", "Garlic"), 2: 'Chicken', 3: 'Jjimdak'}
+        expected = {1: ("Carrots", "Potatoes", "Onions", "Garlic"), 2: "Chicken", 3: "Jjimdak"}
         self.assertEqual(actual, expected)
 
     def test_each_level_ingredients_samgyeopsal(self):
@@ -105,7 +105,7 @@ class TestEachLevelIngredients(TestCase):
             "Bulgogi": {"Difficulty": 4, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Beef"}}
         dish = "Samgyeopsal"
         actual = game.each_level_ingredients(dishes, dish)
-        expected = {1: ("Lettuce", "Garlic"), 2: 'Pork', 3: 'Samgyeopsal'}
+        expected = {1: ("Lettuce", "Garlic"), 2: "Pork", 3: "Samgyeopsal"}
         self.assertEqual(actual, expected)
 
     def test_each_level_ingredients_bulgogi(self):
@@ -120,5 +120,5 @@ class TestEachLevelIngredients(TestCase):
             "Bulgogi": {"Difficulty": 4, "Vegetables": ("Carrots", "Onions", "Garlic"), "Meat": "Beef"}}
         dish = "Bulgogi"
         actual = game.each_level_ingredients(dishes, dish)
-        expected = {1: ("Carrots", "Onions", "Garlic"), 2: 'Beef', 3: 'Bulgogi'}
+        expected = {1: ("Carrots", "Onions", "Garlic"), 2: "Beef", 3: "Bulgogi"}
         self.assertEqual(actual, expected)
