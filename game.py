@@ -578,7 +578,7 @@ def character_has_leveled(character: dict, ingredients: dict) -> bool:
     ...                   "Mastered Skills": ["Rinse"], "Items": ["Carrots", "Onions", "Garlic"]}
     >>> character_has_leveled(game_character, jeyuk_ingredients)
     True
-    >>> game_character = {"Name": "Chris", "Title": "Junior Chef", "Level": 2,
+    >>> game_character = {"Name": "Chris", "Title": "Sous Chef", "Level": 2,
     ...                   "X-coordinate": 2, "Y-coordinate": 2, "Current HP": 15, "Max HP": 20,
     ...                   "Mastered Skills": ["Rinse", "Cut"], "Items": ["Pork"]}
     >>> character_has_leveled(game_character, jeyuk_ingredients)
