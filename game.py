@@ -179,30 +179,26 @@ def each_level_ingredients(dish_dict: dict, dish_name: str) -> dict:
     return {1: dish_dict[dish_name]["Vegetables"], 2: dish_dict[dish_name]["Meat"], 3: dish_name}
 
 
-def ingredients_specs(ingredients: dict, dish_name: str) -> dict:
+def ingredients_specs(ingredients: dict) -> dict:
     """
     Initialize the specs of ingredients the user needs to get throughout the game.
 
     :param ingredients: a dictionary containing the level - ingredients pairs
-    :param dish_name: a string indicating the dish name the user chose
     :precondition: ingredients must be a dictionary
     :precondition: ingredients must contain keys indicating each level
     :precondition: ingredients must contain values indicating ingredients the user needs to get in each level
-    :precondition: dish_name must be a string
     :postcondition: initialize the specs of the ingredients including HP, Hit, and Accuracy
     :return: ingredients' specs in a dictionary
 
     >>> jeyuk_ingredients = {1: ("Carrots", "Onions", "Garlic"), 2: "Pork", 3: "Jeyuk"}
-    >>> dish = "Jeyuk"
-    >>> ingredients_specs(jeyuk_ingredients, dish) # doctest: +NORMALIZE_WHITESPACE
+    >>> ingredients_specs(jeyuk_ingredients) # doctest: +NORMALIZE_WHITESPACE
     {'Carrots': {'HP': 5, 'Hit': 1, 'Accuracy': 0.5},
     'Onions': {'HP': 5, 'Hit': 1, 'Accuracy': 0.5},
     'Garlic': {'HP': 5, 'Hit': 1, 'Accuracy': 0.5},
     'Pork': {'HP': 10, 'Hit': 3, 'Accuracy': 0.5},
     'Jeyuk': {'HP': 20, 'Hit': 5, 'Accuracy': 0.75}}
     >>> bulgogi_ingredients = {1: ("Carrots", "Onions", "Garlic"), 2: "Beef", 3: "Bulgogi"}
-    >>> dish = "Bulgogi"
-    >>> ingredients_specs(bulgogi_ingredients, dish) # doctest: +NORMALIZE_WHITESPACE
+    >>> ingredients_specs(bulgogi_ingredients) # doctest: +NORMALIZE_WHITESPACE
     {'Carrots': {'HP': 5, 'Hit': 1, 'Accuracy': 0.5},
     'Onions': {'HP': 5, 'Hit': 1, 'Accuracy': 0.5},
     'Garlic': {'HP': 5, 'Hit': 1, 'Accuracy': 0.5},
@@ -220,7 +216,7 @@ def ingredients_specs(ingredients: dict, dish_name: str) -> dict:
     else:
         ingredients_dict["Beef"] = {"HP": 10, "Hit": 4, "Accuracy": 0.75}
 
-    ingredients_dict[dish_name] = {"HP": 20, "Hit": 5, "Accuracy": 0.75}
+    ingredients_dict[ingredients[3]] = {"HP": 20, "Hit": 5, "Accuracy": 0.75}
 
     return ingredients_dict
 
@@ -679,7 +675,7 @@ def game():
         dish_name = get_user_dish_choice(dish_dict)
         show_ingredients_to_get(dish_dict, dish_name)
         ingredients = each_level_ingredients(dish_dict, dish_name)
-        ingredients_specs_dict = ingredients_specs(ingredients, dish_name)
+        ingredients_specs_dict = ingredients_specs(ingredients)
 
         skill_dict = skills()
         level_dict = levels()
